@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Painel de Clientes</title>
+</head>
+<body>
+    <h1>Painel de Clientes</h1>
+    <form method="get" action="/painel">
+        <input type="text" name="filtro" placeholder="Buscar por nome..."/>
+        <button type="submit">Buscar</button>
+    </form>
+    <a href="/exportar">Exportar Dados</a>
+    <table border="1">
+        <thead>
+            <tr><th>Nome</th><th>Endereço</th><th>Contato</th></tr>
+        </thead>
+        <tbody>
+            <tr th:each="cliente : ${clientes}">
+                <td th:text="${cliente.nome}"></td>
+                <td th:text="${cliente.endereco}"></td>
+                <td th:text="${cliente.contato}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
