@@ -1,3 +1,4 @@
+
 package com.exemplo.sistema.config;
 
 import org.springframework.context.annotation.Bean;
@@ -11,7 +12,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/painel", "/exportar").authenticated()
+                .requestMatchers("/painel", "/exportar", "/dashboard").authenticated()
                 .anyRequest().permitAll()
             )
             .formLogin()
